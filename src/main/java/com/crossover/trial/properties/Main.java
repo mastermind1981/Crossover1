@@ -1,5 +1,8 @@
 package com.crossover.trial.properties;
 
+import com.crossover.trial.properties.managers.JsonParser;
+import com.crossover.trial.properties.managers.PropertiesLoader;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,8 +37,8 @@ public class Main {
 
         List<String> propertySourceUris = Arrays.asList(args).subList(1, args.length);
 
-        // invoke the property parser and print out properties alphabetically
-        AppPropertiesManager m = new TrialAppPropertiesManager();
+        // invoke the property properties and print out properties alphabetically
+        AppPropertiesManager m = new TrialAppPropertiesManager(new PropertiesLoader(new JsonParser()));
         AppProperties props = m.loadProps(propertySourceUris);
         m.printProperties(props, new PrintStream(new FileOutputStream(outputFile)));
     }
