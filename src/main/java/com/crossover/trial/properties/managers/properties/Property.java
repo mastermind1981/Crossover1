@@ -1,8 +1,6 @@
 package com.crossover.trial.properties.managers.properties;
 
-/**
- * Created by alex on 1/16/2016.
- */
+
 public interface Property<T> {
 
     String getName();
@@ -15,7 +13,7 @@ public interface Property<T> {
         return getValue()!=null;
     }
 
-    public Class getSupportedType();
+    Class getSupportedType();
 
     default void reset() {
         parseValue(null);
